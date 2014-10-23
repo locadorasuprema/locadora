@@ -1,0 +1,36 @@
+<h1>Listing movies</h1>
+
+<table>  
+
+<% @movies.each do |movie| %>
+	<tr>
+	    <td style="width: 100px;"><b>Title:</b></td>
+	    <td style="width: 400px;"><%= movie.title %></td>
+	    <td><%= link_to 'Show', movie %></td>
+	</tr>
+	  
+	<tr>
+	    <td style="width: 100px;"><b>Gender:</b></td>
+	    <td style="width: 400px;"><%= movie.gender %></td>
+	    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+	</tr>
+	<tr>
+	    <td style="width: 100px;"><b>Review:</b></td>
+	    <td style="width: 400px;"><%= movie.review %></td>
+	    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<tr>
+	    <td style="width: 100px;"><b>Shelf:</b></td>
+	    <td style="width: 400px;"><%= movie.shelf %></td>
+	    <td></td>
+	</tr>
+	
+	<tr>	    
+	    <td colspan="3">---------------------------------------------------------------------------------</td>
+	</tr>   
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Movie', new_movie_path %>
